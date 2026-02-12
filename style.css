@@ -1,1 +1,395 @@
+/* ========== リセット & 基本設定 ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --code-bg: #f5f5f5;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== ヘッダー ========== */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 0;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+header .subtitle {
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+/* ========== タブナビゲーション ========== */
+.tab-nav {
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.tab-nav .container {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+/* ========== 検索ボックス ========== */
+.search-box {
+    margin: 20px 0;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ========== メインコンテンツ ========== */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.tab-content {
+    display: none;
+    background-color: var(--bg-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* ========== マークダウンコンテンツのスタイル ========== */
+.tab-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.tab-content h2 {
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 15px;
+}
+
+.tab-content h3 {
+    font-size: 1.3rem;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: var(--dark-color);
+}
+
+.tab-content h4 {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.tab-content p {
+    margin-bottom: 15px;
+}
+
+.tab-content ul, .tab-content ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.tab-content li {
+    margin-bottom: 8px;
+}
+
+.tab-content code {
+    background-color: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #e83e8c;
+}
+
+.tab-content pre {
+    background-color: var(--dark-color);
+    color: #f8f8f2;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tab-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.tab-content blockquote {
+    border-left: 4px solid var(--info-color);
+    background-color: var(--light-color);
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.tab-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-content a:hover {
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-content hr {
+    border: none;
+    border-top: 2px solid var(--border-color);
+    margin: 30px 0;
+}
+
+.tab-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tab-content th, .tab-content td {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.tab-content th {
+    background-color: var(--light-color);
+    font-weight: 600;
+}
+
+/* ========== 検索ハイライト ========== */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+/* ========== スクロールトップボタン ========== */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    z-index: 99;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== フッター ========== */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* ========== レスポンシブデザイン ========== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .tab-nav .container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    .tab-content {
+        padding: 20px 15px;
+    }
+
+    .tab-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .tab-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .tab-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .tab-content pre {
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    header {
+        padding: 20px 0;
+    }
+
+    .tab-content {
+        padding: 15px 10px;
+    }
+
+    .tab-content pre {
+        font-size: 0.75rem;
+    }
+}
+
+/* ========== 印刷用スタイル ========== */
+@media print {
+    header, .tab-nav, .search-box, .scroll-top, footer {
+        display: none;
+    }
+
+    .tab-content {
+        display: block !important;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .tab-content pre {
+        background-color: #f5f5f5;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+}
 

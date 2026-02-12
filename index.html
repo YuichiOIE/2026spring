@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibecoding 学習ガイド</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚀 Vibecoding 学習ガイド</h1>
+            <p class="subtitle">Web開発を雰囲気で学ぼう</p>
+        </div>
+    </header>
+
+    <nav class="tab-nav">
+        <div class="container">
+            <button class="tab-btn active" data-tab="glossary">📖 用語集</button>
+            <button class="tab-btn" data-tab="manual">📚 マニュアル</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 検索...">
+        </div>
+
+        <div id="glossary" class="tab-content active">
+            <div class="loading">読み込み中...</div>
+        </div>
+
+        <div id="manual" class="tab-content">
+            <div class="loading">読み込み中...</div>
+        </div>
+
+        <button id="scrollTop" class="scroll-top" title="トップへ戻る">↑</button>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Made with ❤️ for Vibecoding | 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
